@@ -321,10 +321,12 @@
       var ios = /iPhone|iPad|iPod/.test(ua), android = /Android/.test(ua);
       if (!m || (!ios && !android)) return;
       e.preventDefault();
-      var scheme = (ios ? 'iosamap' : 'androidamap') + '://poi?sourceApplication=phyllis&keywords=' + m[1];
+      // city=深圳 → 喺深圳搜尋該地點（只開地點頁，唔會由當前位置導航）
+      var scheme = (ios ? 'iosamap' : 'androidamap') + '://poi?sourceApplication=phyllis&keywords=' + m[1] + '&city=%E6%B7%B1%E5%9C%B3&dev=0';
       var t = Date.now();
-      location.href = scheme;
-      setTimeout(function(){ if (!document.hidden && Date.now() - t < 2500) location.href = a.href; }, 1600);
+      location.href = scheme; // 開 scheme 唔會改變本頁
+      // 後備用新分頁開網頁版 — 本頁與瀏覽紀錄完全不受影響
+      setTimeout(function(){ if (!document.hidden && Date.now() - t < 2500) window.open(a.href, '_blank'); }, 1600);
     });
   });
   document.querySelectorAll('.day-tab').forEach(function(tab){
