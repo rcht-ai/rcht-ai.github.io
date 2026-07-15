@@ -312,6 +312,22 @@
 </footer>
 
 <script>
+  // 高德：手機用 App scheme 直開（關鍵字加「深圳」錨定城市）；冇裝 App 先用新分頁開網頁版
+  document.querySelectorAll('a.map').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var m = a.href.match(/keyword=([^&]+)/);
+      var ua = navigator.userAgent;
+      var ios = /iPhone|iPad|iPod/.test(ua), android = /Android/.test(ua);
+      if (!m || (!ios && !android)) return;
+      e.preventDefault();
+      var kw = m[1];
+      if (kw.indexOf('%E6%B7%B1%E5%9C%B3') !== 0) kw = '%E6%B7%B1%E5%9C%B3' + kw; // 前置「深圳」
+      var scheme = (ios ? 'iosamap' : 'androidamap') + '://poi?sourceApplication=phyllis&keywords=' + kw + '&dev=0';
+      var t = Date.now();
+      location.href = scheme;
+      setTimeout(function(){ if (!document.hidden && Date.now() - t < 2600) window.open(a.href, '_blank'); }, 1800);
+    });
+  });
   document.querySelectorAll('.day-tab').forEach(function(tab){
     tab.addEventListener('click', function(){
       var d = tab.dataset.day;
