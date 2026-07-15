@@ -321,7 +321,7 @@
       if (!m || (!ios && !android)) return;
       e.preventDefault();
       var kw = m[1];
-      if (kw.indexOf('%E6%B7%B1%E5%9C%B3') !== 0) kw = '%E6%B7%B1%E5%9C%B3' + kw; // 前置「深圳」
+      if (kw.indexOf('%E6%B7%B1%E5%9C%B3') === -1) kw = '%E6%B7%B1%E5%9C%B3' + kw; // 名稱冇「深圳」先前置
       var scheme = (ios ? 'iosamap' : 'androidamap') + '://poi?sourceApplication=phyllis&keywords=' + kw + '&dev=0';
       var t = Date.now();
       location.href = scheme;
