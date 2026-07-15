@@ -312,17 +312,25 @@
 </footer>
 
 <script>
-  // 高德：手機用 App scheme 直開（關鍵字加「深圳」錨定城市）；冇裝 App 先用新分頁開網頁版
+  // 高德：viewMap scheme＋座標（dev=1=WGS，App自行轉換）→ App 直接顯示地點釘標
+  // 座標來源：OpenStreetMap（WGS-84），已互相印證
+  var AMAP_POI = {
+    '金茂深圳JW万豪酒店': [22.5391739, 114.0272598],
+    '润园四季椰子鸡火锅安徽大厦店': [22.5389277, 114.0266061],
+    '橙一只手作艺术商店': [22.5630108, 114.0495232],
+    '千户岛日料放题福田店': [22.5415669, 114.0607410],
+    '袭兔星球领展中心城店': [22.5385834, 114.0546296]
+  };
   document.querySelectorAll('a.map').forEach(function(a){
     a.addEventListener('click', function(e){
-      var m = a.href.match(/keyword=([^&]+)/);
+      var m = a.href.match(/keyword=([^&]+)/); if (!m) return;
+      var kw = decodeURIComponent(m[1]);
+      var c = AMAP_POI[kw];
       var ua = navigator.userAgent;
       var ios = /iPhone|iPad|iPod/.test(ua), android = /Android/.test(ua);
-      if (!m || (!ios && !android)) return;
+      if (!c || (!ios && !android)) return; // 桌面或未知地點 → 照開網頁
       e.preventDefault();
-      var kw = m[1];
-      if (kw.indexOf('%E6%B7%B1%E5%9C%B3') === -1) kw = '%E6%B7%B1%E5%9C%B3' + kw; // 名稱冇「深圳」先前置
-      var scheme = (ios ? 'iosamap' : 'androidamap') + '://poi?sourceApplication=phyllis&keywords=' + kw + '&dev=0';
+      var scheme = (ios ? 'iosamap' : 'androidamap') + '://viewMap?sourceApplication=phyllis&poiname=' + encodeURIComponent(kw) + '&lat=' + c[0] + '&lon=' + c[1] + '&dev=1';
       var t = Date.now();
       location.href = scheme;
       setTimeout(function(){ if (!document.hidden && Date.now() - t < 2600) window.open(a.href, '_blank'); }, 1800);
