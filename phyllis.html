@@ -1,0 +1,334 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Phyllis 9歲生日 · 深圳</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#fdf6f0; --card:#ffffff; --pink:#d95d8a; --pink-deep:#b23e6c; --pink-soft:#f8dce7;
+    --gold:#c99a3f; --ink:#33272f; --ink-soft:#5b4d57; --muted:#9b8b96; --line:#efe2e9; --mint:#2f8f78;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--cream);color:var(--ink);font-family:'Noto Sans TC','Noto Sans SC','Fredoka',system-ui,sans-serif;line-height:1.55;-webkit-text-size-adjust:100%}
+
+  header.hero{max-width:1100px;margin:.8rem auto 0;border-radius:22px;overflow:hidden;background:linear-gradient(140deg,#f8dce7 0%,#fdf6f0 46%,#f6ead1 100%);border:1.5px solid var(--pink-soft);position:relative}
+  .hero-inner{padding:1.5rem 1.3rem 1.4rem;position:relative;z-index:1}
+  .hero .confetti{position:absolute;inset:0;font-size:1.3rem;opacity:.5;pointer-events:none}
+  .hero .kicker{font-size:.8rem;letter-spacing:.3em;color:var(--pink-deep);font-weight:700}
+  .hero h1{font-weight:900;font-size:clamp(1.8rem,6vw,2.7rem);line-height:1.1;margin:.35rem 0 .1rem;color:var(--ink)}
+  .hero h1 .big9{color:var(--pink);font-family:'Fredoka',sans-serif;font-size:1.15em}
+  .hero .sub{font-size:.98rem;color:var(--ink-soft);font-weight:700;margin-top:.4rem}
+  .hero .meta{margin-top:.7rem;display:flex;flex-wrap:wrap;gap:.4rem}
+  .hero .chip{background:#fff;border:1.5px solid var(--pink-soft);border-radius:999px;padding:.26rem .68rem;font-size:.8rem;font-weight:700;color:var(--pink-deep)}
+
+  section.info{max-width:1100px;margin:1rem auto 0;display:grid;gap:.9rem;padding:0 1rem}
+  .card{background:var(--card);border:1.5px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 4px 16px rgba(51,39,47,.05)}
+  .card>summary{list-style:none;cursor:pointer;padding:.8rem 1.05rem;font-size:.88rem;letter-spacing:.08em;color:var(--pink-deep);font-weight:900;display:flex;justify-content:space-between;align-items:center;background:#fff5f8;border-bottom:1.5px solid var(--line)}
+  .card>summary::-webkit-details-marker{display:none}
+  .card>summary::after{content:'＋';font-size:1.05rem}
+  .card[open]>summary::after{content:'−'}
+  .card .card-body{padding:.8rem 1.05rem}
+
+  /* 名冊：一行一家，慳位 */
+  .fam-line{display:flex;flex-wrap:wrap;align-items:baseline;gap:.45rem;padding:.42rem 0;border-bottom:1px dashed var(--line)}
+  .fam-line:last-child{border-bottom:0}
+  .fam-line .fn{font-weight:900;color:var(--ink);font-size:.94rem;flex:0 0 auto}
+  .fam-line .fw{font-size:.88rem;color:var(--ink-soft)}
+  .fam-line .fs{margin-left:auto;font-size:.72rem;font-weight:800;padding:.1rem .55rem;border-radius:999px;background:var(--pink-soft);color:var(--pink-deep);white-space:nowrap}
+  .fam-line .fs.one{background:#e3f3ef;color:var(--mint)}
+  .bday{color:var(--pink-deep);font-weight:900}
+
+  /* 房間 */
+  .roomgrid{display:grid;grid-template-columns:1fr;gap:.5rem}
+  @media(min-width:680px){.roomgrid{grid-template-columns:1fr 1fr}}
+  .room{border:1.5px solid var(--line);border-radius:12px;padding:.55rem .75rem;background:#fffafc}
+  .room .r-no{font-weight:900;color:var(--pink-deep);font-size:.78rem;letter-spacing:.08em}
+  .room .r-who{font-size:.94rem;font-weight:700;color:var(--ink);margin:.08rem 0}
+  .room .r-n{display:inline-block;font-size:.72rem;font-weight:800;padding:.08rem .5rem;border-radius:999px;background:var(--pink-soft);color:var(--pink-deep)}
+  .room .r-n.one{background:#e3f3ef;color:var(--mint)}
+  .room .r-note{font-size:.8rem;color:var(--ink-soft);margin-top:.12rem}
+
+  .row{display:flex;gap:.6rem;padding:.5rem 0;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .k{flex:0 0 30%;font-size:.84rem;color:var(--pink-deep);font-weight:900}
+  .row .v{flex:1;font-size:.9rem;color:var(--ink)}
+  .row .v small{color:var(--muted);display:block;margin-top:.1rem}
+  a.map{display:inline-block;font-size:.76rem;font-weight:800;color:#fff;background:var(--pink);border-radius:999px;padding:.08rem .6rem;text-decoration:none;margin-top:.2rem}
+  a.map:active{background:var(--pink-deep)}
+
+  .day-tabs{position:sticky;top:0;z-index:20;background:var(--cream);padding:.7rem 1rem .5rem;margin:1.2rem auto 0;display:flex;gap:.5rem;max-width:1100px;overflow-x:auto}
+  .day-tab{flex:1;min-width:96px;border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:.5rem .5rem;cursor:pointer;text-align:center;font-family:inherit}
+  .day-tab .dt-d{font-weight:900;color:var(--pink-deep);font-size:.72rem;letter-spacing:.05em}
+  .day-tab .dt-t{font-size:.82rem;color:var(--ink-soft);font-weight:700;margin-top:.12rem}
+  .day-tab.active{background:var(--pink);border-color:var(--pink)}
+  .day-tab.active .dt-d,.day-tab.active .dt-t{color:#fff}
+
+  .day-content{display:none;max-width:1100px;margin:0 auto;padding:0 1rem 2rem}
+  .day-content.active{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .day-head{padding:.4rem .1rem .9rem}
+  .day-wx{display:inline-block;font-size:.8rem;color:var(--ink-soft);background:#fff;border:1.5px solid var(--pink-soft);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:.35rem .65rem;margin-bottom:.5rem}
+  .day-head h2{font-weight:900;font-size:1.12rem;margin:.1rem 0 .2rem;color:var(--ink)}
+  .day-head p{margin:0;font-size:.9rem;color:var(--ink-soft)}
+
+  .event{display:grid;grid-template-columns:78px 1fr;gap:.85rem;background:#fff;border:1.5px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:.75rem;box-shadow:0 3px 12px rgba(51,39,47,.04)}
+  .event.hi{border-color:var(--pink-soft);background:#fffafc}
+  .event .ev-thumb{background:var(--pink-soft)}
+  .event .ev-thumb img{width:100%;height:100%;object-fit:cover;display:block;min-height:92px}
+  .event .ev-body{padding:.65rem .9rem .75rem .1rem}
+  .event .ev-time{font-size:.74rem;font-weight:900;color:var(--pink-deep);letter-spacing:.04em}
+  .event .ev-title{font-weight:900;font-size:1rem;margin:.08rem 0 .15rem;color:var(--ink)}
+  .event .ev-sub{font-size:.86rem;color:var(--ink-soft);margin:0}
+  .event .ev-addr{font-size:.8rem;color:var(--muted);margin-top:.3rem}
+  .event .ev-note{font-size:.84rem;color:var(--ink-soft);margin-top:.35rem;line-height:1.6}
+  .event .ev-note strong{color:var(--pink-deep)}
+  .event .ev-opts{margin-top:.45rem;display:grid;gap:.4rem}
+  .event .opt{border:1.5px dashed var(--pink-soft);border-radius:10px;padding:.45rem .6rem;font-size:.82rem;color:var(--ink-soft);background:#fff}
+  .event .opt b{color:var(--ink)}
+  .event .opt .oa{display:block;font-size:.76rem;color:var(--muted);margin-top:.1rem}
+  .event .ev-tags{margin-top:.4rem;display:flex;flex-wrap:wrap;gap:.35rem}
+  .event .tag{font-size:.72rem;font-weight:800;background:#f4ecf1;color:var(--ink-soft);border-radius:999px;padding:.12rem .55rem}
+  .event .tag.book{background:#e3f3ef;color:var(--mint)}
+  .event .tag.tbd{background:#fff3e0;color:#a5761a}
+
+  footer{max-width:1100px;margin:1.4rem auto 0;text-align:center;color:var(--muted);font-size:.82rem;padding:1rem}
+  footer .sig{font-weight:900;color:var(--pink-deep);font-size:1rem;margin-bottom:.2rem}
+</style>
+
+<header class="hero">
+  <div class="confetti">🎈🎀✨🎂🎉🎈✨🎀</div>
+  <div class="hero-inner">
+    <div class="kicker">深圳 · 生日之旅</div>
+    <h1>Phyllis 的 <span class="big9">9</span> 歲生日 🎂</h1>
+    <div class="sub">深圳 · 2026年7月25日（六）至27日（一）· 2晚 · 3個家庭 · 11人</div>
+    <div class="meta">
+      <span class="chip">🏨 JW萬豪 · 4間房</span>
+      <span class="chip">🍲 椰子雞火鍋</span>
+      <span class="chip">🎨 DIY派對 1–5pm</span>
+      <span class="chip">🍣 千户岛放題</span>
+      <span class="chip">🕹 彈珠機＋商場</span>
+    </div>
+  </div>
+</header>
+
+<section class="info">
+  <details class="card" open>
+    <summary>👨‍👩‍👧 家庭名冊 · 11人</summary>
+    <div class="card-body">
+      <div class="fam-line"><span class="fn">🎀 Priscilla一家</span><span class="fw">Priscilla · Paul · <span class="bday">Phyllis（壽星 9歲🎂）</span> · Paisley</span><span class="fs">Paul 1晚 · 其餘2晚</span></div>
+      <div class="fam-line"><span class="fn">👨‍👩‍👧 William一家</span><span class="fw">William · Rachel · Kaitlyn</span><span class="fs">William 1晚 · Rachel＋Kaitlyn 2晚</span></div>
+      <div class="fam-line"><span class="fn">👩‍👦‍👧 Candice一家</span><span class="fw">Candice · Candice媽媽 · Manson · Mila</span><span class="fs one">1晚</span></div>
+    </div>
+  </details>
+
+  <details class="card" open>
+    <summary>🛏 房間安排 · 4間房</summary>
+    <div class="card-body">
+      <div class="roomgrid">
+        <div class="room"><div class="r-no">1號房 🎀</div><div class="r-who">Phyllis＋Kaitlyn</div><span class="r-n">2晚</span><div class="r-note">第2晚 Rachel 搬入一齊住</div></div>
+        <div class="room"><div class="r-no">2號房</div><div class="r-who">William＋Rachel</div><span class="r-n one">只住第1晚</span><div class="r-note">第2日退房 · Rachel→1號房 · William回港</div></div>
+        <div class="room"><div class="r-no">3號房</div><div class="r-who">Priscilla＋Paul＋Paisley</div><span class="r-n">房留2晚</span><div class="r-note">Paul 只住第1晚，第2日回港 · 第2晚剩 Priscilla＋Paisley</div></div>
+        <div class="room"><div class="r-no">4號房</div><div class="r-who">Candice＋Candice媽媽＋Manson＋Mila</div><span class="r-n one">只住第1晚</span><div class="r-note">第2日退房 · 全家回港</div></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="card" open>
+    <summary>🎫 預訂一覽</summary>
+    <div class="card-body">
+      <div class="row"><span class="k">🏨 酒店</span><span class="v"><strong>金茂深圳JW万豪酒店</strong> ✓ 4房<br><small>深圳市福田区深南大道6005号 · 车公庙地铁J1出口步行200米 · 7/25 15:00入住 → 7/27 11:00前退房</small><a class="map" href="https://uri.amap.com/search?keyword=金茂深圳JW万豪酒店" target="_blank" rel="noopener">高德地圖 ↗</a></span></div>
+      <div class="row"><span class="k">🍲 火鍋午餐</span><span class="v"><strong>润园四季椰子鸡火锅（安徽大厦店）</strong> ✓ 包廂11人<br><small>福田区深南大道6007号安徽大厦创展中心3楼 · 酒店隔壁，步行2分鐘 · 7/25（六）11:30 · ¥115/人 · 高德訂單 45888117640 · 陳小姐 19518748154</small><a class="map" href="https://uri.amap.com/search?keyword=润园四季椰子鸡火锅安徽大厦店" target="_blank" rel="noopener">高德地圖 ↗</a></span></div>
+      <div class="row"><span class="k">🎨 DIY派對</span><span class="v"><strong>橙一只手作艺术商店</strong> ✓ 已訂場<br><small>福田区雨田路富莲大厦 · 打車約15分鐘 · 7/25（六）13:00–17:00 · 手作DIY＋生日會</small><a class="map" href="https://uri.amap.com/search?keyword=橙一只手作艺术商店" target="_blank" rel="noopener">高德地圖 ↗</a></span></div>
+      <div class="row"><span class="k">🍣 放題晚餐</span><span class="v"><strong>千户岛じま·日料放题（福田店）</strong> 18:00 · 建議先訂包間<br><small>福田区华嵘大厦5楼（岗厦北地铁站6A口步行60米）· 打車約10分鐘 · ¥450/人 · 4.6★ · 17:30–22:00</small><a class="map" href="https://uri.amap.com/search?keyword=千户岛日料放题福田店" target="_blank" rel="noopener">高德地圖 ↗</a></span></div>
+    </div>
+  </details>
+</section>
+
+<nav class="day-tabs">
+  <button class="day-tab active" data-day="1"><div class="dt-d">7/25 六</div><div class="dt-t">火鍋 · 派對 · 放題</div></button>
+  <button class="day-tab" data-day="2"><div class="dt-d">7/26 日</div><div class="dt-t">彈珠機 · 商場</div></button>
+  <button class="day-tab" data-day="3"><div class="dt-d">7/27 一</div><div class="dt-t">早餐 · 回港</div></button>
+</nav>
+
+<!-- 第1天 -->
+<main class="day-content active" id="day-1">
+  <div class="day-head">
+    <div class="day-wx">⛅ 深圳仲夏 · 悶熱 · 約32°/27° · 或有雷陣雨（出發前再查）</div>
+    <h2>生日大日子 — 11:00到酒店 · 11:30火鍋 · 1–5pm派對 · 6pm放題</h2>
+    <p>早上過關，全日行程都已訂好 — 跟住時間表走就得。</p>
+  </div>
+
+  <div class="event">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="深圳" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">早上</div>
+      <h3 class="ev-title">香港 → 深圳（過關）</h3>
+      <p class="ev-sub">各家自行過關 · 目標11:00到酒店 · 高鐵西九龍→福田14分鐘，或深圳灣／落馬洲口岸</p>
+      <div class="ev-note">帶<strong>回鄉證</strong> · 福田站／口岸打車到酒店約10–20分鐘 · 記得開通<strong>微信支付／支付寶</strong>。</div>
+    </div>
+  </div>
+
+  <div class="event hi">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="酒店" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">11:00</div>
+      <h3 class="ev-title">到酒店 · 寄存行李</h3>
+      <p class="ev-sub">金茂深圳JW万豪酒店 · 行李交禮賓部（15:00才正式入住）</p>
+      <div class="ev-addr">📍 深圳市福田区深南大道6005号 · 车公庙地铁J1出口200米　<a class="map" href="https://uri.amap.com/search?keyword=金茂深圳JW万豪酒店" target="_blank" rel="noopener">高德地圖 ↗</a></div>
+      <div class="ev-tags"><span class="tag book">已訂 ✓ 4房</span></div>
+    </div>
+  </div>
+
+  <div class="event hi">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="火鍋" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">11:30</div>
+      <h3 class="ev-title">🍲 椰子雞火鍋午餐（包廂11人）</h3>
+      <p class="ev-sub">润园四季椰子鸡火锅（安徽大厦店）· 4.6★ · ¥115/人 · 湯底清甜，小朋友啱食</p>
+      <div class="ev-addr">📍 福田区深南大道6007号安徽大厦创展中心3楼 · <strong>酒店隔壁，步行2分鐘</strong>　<a class="map" href="https://uri.amap.com/search?keyword=润园四季椰子鸡火锅安徽大厦店" target="_blank" rel="noopener">高德地圖 ↗</a></div>
+      <div class="ev-note">高德訂單 <strong>45888117640</strong> · 陳小姐 19518748154</div>
+      <div class="ev-tags"><span class="tag book">已預訂 ✓</span><span class="tag">酒店隔壁</span></div>
+    </div>
+  </div>
+
+  <div class="event hi">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="DIY" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">13:00–17:00</div>
+      <h3 class="ev-title">🎨 Phyllis 的 DIY 手作生日派對</h3>
+      <p class="ev-sub">橙一只手作艺术商店 · 已訂場 · 5位小朋友做手作，大人飲茶傾偈</p>
+      <div class="ev-addr">📍 福田区雨田路富莲大厦 · 打車約15分鐘　<a class="map" href="https://uri.amap.com/search?keyword=橙一只手作艺术商店" target="_blank" rel="noopener">高德地圖 ↗</a></div>
+      <div class="ev-note">生日蛋糕 🎂 記得安排（同店家確認自帶或代訂）。</div>
+      <div class="ev-tags"><span class="tag book">已訂場 ✓</span><span class="tag tbd">蛋糕待確認</span></div>
+    </div>
+  </div>
+
+  <div class="event hi">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1587556930799-8dca6fad6d41?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="松葉蟹" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">18:00</div>
+      <h3 class="ev-title">🍣 生日晚餐 · 千户岛じま 日料放題（福田店）</h3>
+      <p class="ev-sub">刺身 · 松葉蟹 · 海膽 · ¥450/人 · 4.6★（2,347評）· 福田自助餐熱門榜第2名</p>
+      <div class="ev-addr">📍 福田区华嵘大厦5楼（岗厦北地铁6A口步行60米）· 打車約10分鐘　<a class="map" href="https://uri.amap.com/search?keyword=千户岛日料放题福田店" target="_blank" rel="noopener">高德地圖 ↗</a></div>
+      <div class="ev-note">17:30開市 · 有包間與寶寶椅 · <strong>建議先訂11人包間</strong>。</div>
+      <div class="ev-tags"><span class="tag tbd">包間待訂</span></div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="房間" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">晚上</div>
+      <h3 class="ev-title">回酒店 · 入住4間房</h3>
+      <p class="ev-sub">小朋友沖涼瞓覺 — 聽日仲有彈珠機！</p>
+    </div>
+  </div>
+</main>
+
+<!-- 第2天 -->
+<main class="day-content" id="day-2">
+  <div class="day-head">
+    <div class="day-wx">🌤 悶熱 · 約32°/27° · 午後或有陣雨 — 室內行程啱晒</div>
+    <h2>自助早餐 · 彈珠機＋商場 · 回酒店休息 · 部分回港</h2>
+    <p>下午 William、Paul 與 Candice一家（6人）回港，退2、4號房；Rachel 搬入1號房。晚餐彈性。</p>
+  </div>
+
+  <div class="event">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="早餐" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">早餐</div>
+      <h3 class="ev-title">🥐 酒店自助早餐</h3>
+      <p class="ev-sub">JW萬豪自助早餐 · 慢慢食</p>
+    </div>
+  </div>
+
+  <div class="event hi">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="彈珠機" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">上午→中午</div>
+      <h3 class="ev-title">🕹 彈珠機＋商場 — 揀一個組合</h3>
+      <p class="ev-sub">全部福田區內 · 冷氣充足 · 落雨都唔怕</p>
+      <div class="ev-opts">
+        <div class="opt"><b>⭐ 朗玩ROUND1（新城市广场店）</b> — 日式遊樂中心：彈珠機／夾公仔、保齡、K房、彈床40+項目，小朋友喺日本玩過一定熟<span class="oa">📍 福田区深南中路1095号新城市广场3楼 · 打車約10分鐘 · <a class="map" href="https://uri.amap.com/search?keyword=朗玩ROUND1新城市广场" target="_blank" rel="noopener">高德地圖 ↗</a></span></div>
+        <div class="opt"><b>玩美攻略 WonderMeet（世纪汇广场）</b> — 福田最大室內遊樂場，3層10萬呎：街機、卡丁車、保齡、真冰場<span class="oa">📍 福田区深南中路3018号世纪汇广场1–3层 · 打車約10分鐘 · 10:00–22:00 · <a class="map" href="https://uri.amap.com/search?keyword=玩美攻略世纪汇广场" target="_blank" rel="noopener">高德地圖 ↗</a></span></div>
+        <div class="opt"><b>KP-FUN 潮玩游乐街区（中洲湾）</b> — 40+電玩項目，商場新淨好行<span class="oa">📍 福田区滨河大道9289号中洲湾C Future City 3层 · 打車約10分鐘 · <a class="map" href="https://uri.amap.com/search?keyword=KPFUN中洲湾" target="_blank" rel="noopener">高德地圖 ↗</a></span></div>
+        <div class="opt"><b>純商場：深业上城UpperHills / 卓悦中心One Avenue＋COCO Park</b> — 型格好逛，食肆多<span class="oa">📍 皇岗路5001号（打車約15分鐘）/ 福华三路（打車約12分鐘）· <a class="map" href="https://uri.amap.com/search?keyword=深业上城" target="_blank" rel="noopener">高德 ↗</a> <a class="map" href="https://uri.amap.com/search?keyword=卓悦中心OneAvenue" target="_blank" rel="noopener">高德 ↗</a></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="泳池" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">下午</div>
+      <h3 class="ev-title">🏨 回酒店休息 · 泳池</h3>
+      <p class="ev-sub">玩水／午睡／執行李 — 各適其適</p>
+    </div>
+  </div>
+
+  <div class="event hi">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="回港" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">下午</div>
+      <h3 class="ev-title">🧳 6人回港 · Rachel 搬房</h3>
+      <p class="ev-sub">William · Paul · Candice一家（共6人）過關回港 · 退2號＋4號房 · Rachel 搬入1號房</p>
+      <div class="ev-note">留宿第2晚（5人）：Rachel＋Kaitlyn＋Phyllis（1號房）· Priscilla＋Paisley（3號房）。</div>
+      <div class="ev-tags"><span class="tag">6人回港</span><span class="tag">5人留低</span></div>
+    </div>
+  </div>
+
+  <div class="event">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="晚餐" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">晚餐</div>
+      <h3 class="ev-title">🍽 晚餐 — 彈性決定</h3>
+      <p class="ev-sub">酒店餐廳（最方便）· 卓悦中心／COCO Park食肆 · 或隔壁再食椰子雞</p>
+      <div class="ev-tags"><span class="tag tbd">彈性</span></div>
+    </div>
+  </div>
+</main>
+
+<!-- 第3天 -->
+<main class="day-content" id="day-3">
+  <div class="day-head">
+    <div class="day-wx">⛅ 悶熱 · 約32°/27°</div>
+    <h2>酒店早餐 · 11:00退房 · 回香港</h2>
+    <p>留低5人食最後一餐自助早餐，11:00前退房過關回港 🎉</p>
+  </div>
+
+  <div class="event">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="早餐" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">早餐</div>
+      <h3 class="ev-title">🥐 酒店自助早餐 · 慢慢來</h3>
+      <p class="ev-sub">食飽先執行李</p>
+    </div>
+  </div>
+
+  <div class="event hi">
+    <div class="ev-thumb"><img src="https://images.unsplash.com/photo-1556388158-158ea5ccacbd?w=500&q=80&auto=format&fit=crop" loading="lazy" alt="退房" onerror="this.parentElement.style.display='none'"></div>
+    <div class="ev-body">
+      <div class="ev-time">11:00</div>
+      <h3 class="ev-title">🧳 退房 · 回香港</h3>
+      <p class="ev-sub">11:00前退房（1號＋3號房）· 過關回港 · 🎂 生日快樂 Phyllis！</p>
+      <div class="ev-tags"><span class="tag book">11:00 退房</span></div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="sig">🎂 生日快樂，Phyllis！</div>
+  <div>私人行程 · 請勿轉發</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.day-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var d = tab.dataset.day;
+      document.querySelectorAll('.day-tab').forEach(function(t){ t.classList.toggle('active', t === tab); });
+      document.querySelectorAll('.day-content').forEach(function(c){ c.classList.toggle('active', c.id === 'day-' + d); });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
