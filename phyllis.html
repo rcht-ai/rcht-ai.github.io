@@ -318,6 +318,20 @@
 </footer>
 
 <script>
+  // 高德連結：手機直接開 App（iosamap:// / androidamap://），冇裝 App 先退回網頁
+  document.querySelectorAll('a.map').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var m = a.href.match(/keyword=([^&]+)/);
+      var ua = navigator.userAgent;
+      var ios = /iPhone|iPad|iPod/.test(ua), android = /Android/.test(ua);
+      if (!m || (!ios && !android)) return; // 桌面照開網頁
+      e.preventDefault();
+      var scheme = (ios ? 'iosamap' : 'androidamap') + '://poi?sourceApplication=phyllis&keywords=' + m[1];
+      var t = Date.now();
+      location.href = scheme;
+      setTimeout(function(){ if (!document.hidden && Date.now() - t < 2500) location.href = a.href; }, 1600);
+    });
+  });
   document.querySelectorAll('.day-tab').forEach(function(tab){
     tab.addEventListener('click', function(){
       var d = tab.dataset.day;
