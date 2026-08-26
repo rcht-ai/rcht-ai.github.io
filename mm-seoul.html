@@ -122,6 +122,8 @@
   .row .v small{color:var(--muted);display:block;margin-top:.08rem;font-size:.73rem;line-height:1.5}
   footer{max-width:720px;margin:1.3rem auto 0;text-align:center;color:var(--ink-soft);font-size:.73rem;padding:.8rem .8rem 2.2rem}
   footer .sig{font-family:'Instrument Serif',Georgia,serif;font-size:1.08rem;color:var(--teal-deep);margin-bottom:.15rem}
+  footer .upd{margin-top:.5rem;font-size:.72rem;color:var(--muted);line-height:1.6}
+  footer .upd b{color:var(--teal-deep);font-weight:700}
 </style>
 
 <header class="hero">
@@ -456,9 +458,11 @@
 <footer>
   <div class="sig">Have the best trip 🇰🇷</div>
   <div>Meiky &amp; Marcella · Sep 12–15, 2026 · private plan</div>
+  <div class="upd">Last updated <b id="upd">—</b><br>Anything to change? Just message Rachel and it will be updated here.</div>
 </footer>
 
 <script>
+  (function(){var el=document.getElementById('upd');if(!el)return;var d=new Date(document.lastModified);el.textContent=isNaN(d)?'16 Jul 2026':d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});})();
   document.querySelectorAll('.day-tab').forEach(function(tab){
     tab.addEventListener('click', function(){
       var d = tab.dataset.d;
