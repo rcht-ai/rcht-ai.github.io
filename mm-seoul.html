@@ -1,0 +1,424 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Seoul · Meiky &amp; Marcella · Sep 12–15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf7f2; --card:#fff; --ink:#1c1a19; --ink-soft:#5a5450; --muted:#9a938d;
+    --line:#ebe4dc; --coral:#d9503f; --coral-deep:#a83527; --coral-soft:#fbeae7;
+    --sage:#4a7c6a; --sage-soft:#e6f0ec; --sand:#f3ece1; --gold:#b8873a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter','Noto Sans KR',system-ui,sans-serif;font-size:15px;line-height:1.5;-webkit-text-size-adjust:100%}
+
+  /* hero */
+  header.hero{margin:.7rem .8rem 0;border-radius:18px;overflow:hidden;background:linear-gradient(150deg,#f3ece1 0%,#faf7f2 55%,#fbeae7 100%);border:1.5px solid var(--line)}
+  @media(min-width:720px){header.hero{max-width:720px;margin:.9rem auto 0}}
+  .hero-inner{padding:1.05rem .95rem .9rem}
+  .hero .kicker{font-size:.68rem;letter-spacing:.28em;color:var(--coral);font-weight:700;text-transform:uppercase}
+  .hero h1{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:clamp(2rem,9vw,2.9rem);line-height:1;margin:.3rem 0 .05rem;letter-spacing:-.01em}
+  .hero h1 em{font-style:italic;color:var(--coral)}
+  .hero .sub{font-size:.85rem;color:var(--ink-soft);font-weight:600;margin-top:.35rem}
+  .hero .who{font-size:.8rem;color:var(--muted);font-weight:500;margin-top:.12rem}
+  .hero .meta{margin-top:.6rem;display:flex;gap:.32rem;overflow-x:auto;padding-bottom:.15rem}
+  .hero .meta::-webkit-scrollbar{display:none}
+  .hero .chip{flex:0 0 auto;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:.2rem .58rem;font-size:.73rem;font-weight:700;color:var(--ink-soft);white-space:nowrap}
+
+  /* action banner */
+  .todo{margin:.7rem .8rem 0;background:#fff;border:1.5px solid var(--coral);border-left:4px solid var(--coral);border-radius:12px;padding:.6rem .75rem;display:flex;gap:.55rem;align-items:flex-start}
+  @media(min-width:720px){.todo{max-width:720px;margin:.7rem auto 0}}
+  .todo .t-ic{font-size:1.1rem;line-height:1.2}
+  .todo .t-tx{font-size:.83rem;color:var(--ink);line-height:1.5}
+  .todo .t-tx b{color:var(--coral-deep)}
+
+  /* day tabs */
+  .day-tabs{position:sticky;top:0;z-index:20;background:var(--bg);padding:.6rem .8rem .45rem;display:flex;gap:.38rem;max-width:720px;margin:0 auto}
+  .day-tab{flex:1;border:1.5px solid var(--line);background:#fff;border-radius:11px;padding:.4rem .22rem;cursor:pointer;text-align:center;font-family:inherit}
+  .day-tab .dt-d{font-weight:800;color:var(--coral);font-size:.68rem;letter-spacing:.02em}
+  .day-tab .dt-t{font-size:.68rem;color:var(--ink-soft);font-weight:600;margin-top:.06rem;line-height:1.25}
+  .day-tab.active{background:var(--ink);border-color:var(--ink)}
+  .day-tab.active .dt-d{color:#ffb3a7}
+  .day-tab.active .dt-t{color:#fff}
+
+  .day{display:none;max-width:720px;margin:0 auto;padding:0 .8rem}
+  .day.active{display:block;animation:fade .22s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+  .day-head{padding:.35rem .1rem .7rem}
+  .day-head .dh-k{font-size:.68rem;letter-spacing:.16em;color:var(--coral);font-weight:700;text-transform:uppercase}
+  .day-head h2{font-family:'Instrument Serif',Georgia,serif;font-weight:400;font-size:1.35rem;margin:.15rem 0 .2rem;line-height:1.2}
+  .day-head p{margin:0;font-size:.82rem;color:var(--ink-soft)}
+
+  /* event card */
+  .ev{display:flex;align-items:flex-start;gap:.62rem;background:var(--card);border:1.5px solid var(--line);border-radius:13px;margin-bottom:.55rem;padding:.62rem}
+  .ev.key{border-color:#f0cec7;background:#fffcfb}
+  .ev .th{flex:0 0 70px}
+  .ev .th img{width:70px;height:70px;object-fit:cover;display:block;border-radius:9px;background:var(--sand)}
+  .ev .bd{flex:1;min-width:0}
+  .ev .tm{font-size:.68rem;font-weight:800;color:var(--coral);letter-spacing:.02em}
+  .ev h3{font-size:.92rem;font-weight:800;margin:.05rem 0 .1rem;line-height:1.3}
+  .ev h3 .kr{font-weight:500;color:var(--muted);font-size:.82rem}
+  .ev .sb{font-size:.79rem;color:var(--ink-soft);margin:0;line-height:1.5}
+  .ev .ad{font-size:.73rem;color:var(--muted);margin-top:.28rem;line-height:1.5}
+  .ev .nt{font-size:.76rem;color:var(--ink-soft);margin-top:.28rem;line-height:1.55;background:var(--sand);border-radius:8px;padding:.35rem .5rem}
+  .ev .nt b{color:var(--coral-deep)}
+  a.map{display:inline-block;font-size:.71rem;font-weight:800;color:#fff;background:var(--sage);border-radius:999px;padding:.15rem .6rem;text-decoration:none;margin-top:.25rem}
+  a.map:active{opacity:.8}
+  a.ext{color:var(--sage);font-weight:700;text-decoration:underline;text-underline-offset:2px;word-break:break-word}
+  .tags{margin-top:.32rem;display:flex;flex-wrap:wrap;gap:.28rem}
+  .tag{font-size:.67rem;font-weight:800;background:#f2ede7;color:var(--ink-soft);border-radius:999px;padding:.1rem .48rem}
+  .tag.ok{background:var(--sage-soft);color:var(--sage)}
+  .tag.no{background:var(--coral-soft);color:var(--coral-deep)}
+  .tag.opt{background:#f6f0e2;color:var(--gold)}
+
+  /* route list */
+  .route{background:var(--card);border:1.5px solid var(--line);border-radius:13px;margin-bottom:.55rem;overflow:hidden}
+  .route>summary{list-style:none;cursor:pointer;padding:.6rem .75rem;font-size:.8rem;font-weight:800;color:var(--ink);display:flex;justify-content:space-between;align-items:center;background:var(--sand)}
+  .route>summary::-webkit-details-marker{display:none}
+  .route>summary::after{content:'＋';color:var(--coral)}
+  .route[open]>summary::after{content:'−'}
+  .route .rb{padding:.5rem .75rem .7rem}
+  .stop{display:flex;gap:.5rem;padding:.32rem 0;border-bottom:1px dashed var(--line);font-size:.78rem;line-height:1.5}
+  .stop:last-child{border-bottom:0}
+  .stop .n{flex:0 0 20px;font-weight:800;color:var(--coral);font-size:.72rem;padding-top:.1rem}
+  .stop b{color:var(--ink)}
+  .stop .kr{color:var(--muted);font-weight:400}
+  .stop .cat{display:inline-block;font-size:.63rem;font-weight:800;border-radius:4px;padding:0 .3rem;margin-right:.25rem;vertical-align:1px}
+  .cat.cafe{background:#efe6d8;color:var(--gold)}
+  .cat.shop{background:#e8eef0;color:#4a6b7c}
+
+  /* bottom cards */
+  section.info{max-width:720px;margin:1.3rem auto 0;display:grid;gap:.65rem;padding:0 .8rem}
+  .card{background:var(--card);border:1.5px solid var(--line);border-radius:13px;overflow:hidden}
+  .card>summary{list-style:none;cursor:pointer;padding:.65rem .85rem;font-size:.79rem;letter-spacing:.04em;color:var(--ink);font-weight:800;display:flex;justify-content:space-between;align-items:center;background:var(--sand)}
+  .card>summary::-webkit-details-marker{display:none}
+  .card>summary::after{content:'＋';color:var(--coral)}
+  .card[open]>summary::after{content:'−'}
+  .card .cb{padding:.65rem .85rem}
+  .row{padding:.45rem 0;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .k{font-size:.75rem;color:var(--coral);font-weight:800;display:block;margin-bottom:.08rem}
+  .row .v{font-size:.81rem;line-height:1.5}
+  .row .v small{color:var(--muted);display:block;margin-top:.08rem;font-size:.73rem;line-height:1.5}
+  footer{max-width:720px;margin:1.3rem auto 0;text-align:center;color:var(--muted);font-size:.73rem;padding:.8rem .8rem 2.2rem}
+  footer .sig{font-family:'Instrument Serif',Georgia,serif;font-size:1.05rem;color:var(--ink);margin-bottom:.15rem}
+</style>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">서울 · Korea</div>
+    <h1>Seoul, <em>slowly</em></h1>
+    <div class="sub">Sat 12 – Tue 15 Sept 2026 · 3 nights</div>
+    <div class="who">Meiky &amp; Marcella · Lotte Hotel Seoul</div>
+    <div class="meta">
+      <span class="chip">🥢 On 6.5 kimchi tapas</span>
+      <span class="chip">🦀 Ganjang gejang</span>
+      <span class="chip">🛍 Seongsu + Dosan</span>
+      <span class="chip">🥩 Hanwoo omakase</span>
+      <span class="chip">🍸 ZEST · #2 in Asia</span>
+      <span class="chip">💆 Spa options</span>
+    </div>
+  </div>
+</header>
+
+<div class="todo">
+  <div class="t-ic">⚠️</div>
+  <div class="t-tx"><b>To book:</b> Myeon Seoul (면서울) on <a class="ext" href="https://www.catchtable.net/" target="_blank" rel="noopener">CatchTable</a> — Chef Kim Do-yoon's noodle bar, Day 3 lunch. Everything else is confirmed.</div>
+</div>
+
+<nav class="day-tabs">
+  <button class="day-tab active" data-d="1"><div class="dt-d">SAT 12</div><div class="dt-t">Arrive · On 6.5</div></button>
+  <button class="day-tab" data-d="2"><div class="dt-d">SUN 13</div><div class="dt-t">Seongsu · Crab</div></button>
+  <button class="day-tab" data-d="3"><div class="dt-d">MON 14</div><div class="dt-t">Dosan · Bars</div></button>
+  <button class="day-tab" data-d="4"><div class="dt-d">TUE 15</div><div class="dt-t">Depart</div></button>
+</nav>
+
+<!-- DAY 1 -->
+<main class="day active" id="d1">
+  <div class="day-head">
+    <div class="dh-k">Day 1 · Sat 12 Sept</div>
+    <h2>Land, settle in, kimchi tapas at midnight-ish</h2>
+    <p>An easy first day — arrive, drop bags, wander Myeongdong, then a late hanok dinner in Bukchon.</p>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Airport" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">14:05</div>
+      <h3>Land at Incheon (ICN)</h3>
+      <p class="sb">AREX express train (~43 min to Seoul Station) or taxi (~70 min, ₩70–90k) → Lotte Hotel Seoul.</p>
+      <div class="nt">Allow ~1.5 hrs for immigration + bags. Realistically at the hotel around <b>16:00–16:30</b>. Grab a T-money card or just tap a foreign Visa/Mastercard on the subway.</div>
+    </div>
+  </div>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Hotel" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">~16:00</div>
+      <h3>Check in · Lotte Hotel Seoul <span class="kr">롯데호텔 서울</span></h3>
+      <p class="sb">Freshen up, unpack. Optional gentle stroll along Cheonggyecheon Stream (청계천) right nearby.</p>
+      <div class="ad">📍 30 Eulji-ro, Jung-gu (서울특별시 중구 을지로 30) · Euljiro 1-ga Stn, Line 2<br><a class="map" href="https://map.naver.com/p/search/롯데호텔 서울" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="tags"><span class="tag ok">booked ✓</span><span class="tag">3 nights</span></div>
+    </div>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Shopping" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">Late afternoon · optional</div>
+      <h3>Souvenir shopping for the kids <span class="kr">명동</span></h3>
+      <p class="sb">All in Myeongdong, walkable from the hotel: <b>ArtBox</b> (아트박스 · stationery + stickers), <b>Mimiline</b> (미미라인 · accessories), <b>Butter</b> (버터 · character goods).</p>
+      <div class="ad">📍 Myeongdong, ~10 min walk from Lotte<br><a class="map" href="https://map.naver.com/p/search/명동 아트박스" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="tags"><span class="tag opt">optional</span></div>
+    </div>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Bakery" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">Early evening · optional</div>
+      <h3>Bakery A Goong <span class="kr">아궁</span></h3>
+      <p class="sb">Gorgeous hanok-style bakery café near Jonggak Stn. Makgeolli bread, gat financiers, feast focaccia.</p>
+      <div class="ad">📍 Jonggak Stn area · 09:00–22:00 (LO 21:30)<br><a class="map" href="https://map.naver.com/p/search/베이커리 아궁" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="nt">Two ways to play it: drop the shopping bags back at the hotel first for a lighter evening, <b>or</b> go straight from Myeongdong (5–10 min taxi / 15–20 min walk). From the bakery it's a short hop to On 6.5.</div>
+      <div class="tags"><span class="tag opt">optional</span></div>
+    </div>
+  </div>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Korean tapas" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">21:00 · Dinner</div>
+      <h3>On 6.5 <span class="kr">온6.5</span></h3>
+      <p class="sb">Modern kimchi tapas in a hanok — fried kimchi rolls, sea urchin noodles, natural wine. Anguk / Bukchon.</p>
+      <div class="ad">📍 28 Bukchon-ro 1-gil, Jongno-gu · Anguk Stn (Line 3) Exit 1<br><a class="map" href="https://map.naver.com/p/search/온6.5 북촌" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="nt">Named after 6.5°C — the ideal kimchi fermentation temperature. <b>Last order is 21:40</b>, so don't drift late. No walk-ins, reservation only.</div>
+      <div class="tags"><span class="tag ok">confirmed ✓ deposit paid</span></div>
+    </div>
+  </div>
+</main>
+
+<!-- DAY 2 -->
+<main class="day" id="d2">
+  <div class="day-head">
+    <div class="dh-k">Day 2 · Sun 13 Sept</div>
+    <h2>Seongsu all day, then makgeolli</h2>
+    <p>Seoul's Brooklyn: warehouse concept stores, flagship boutiques and a serious café trail — bookended by soy-marinated crab and craft rice wine.</p>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Subway" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">Morning</div>
+      <h3>Hotel → Seongsu-dong <span class="kr">성수동</span></h3>
+      <p class="sb">Line 2 from Euljiro 1-ga (을지로1가) straight to Seongsu (성수) — no transfers, 20–30 min.</p>
+      <div class="nt">The subway beats a taxi here — Sunday traffic over the river is unpredictable.</div>
+    </div>
+  </div>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1580651315530-69c8e0026377?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Crab" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">12:30 · Lunch</div>
+      <h3>Gebang Sikdang <span class="kr">게방식당 성수점</span></h3>
+      <p class="sb">Michelin Bib Gourmand. The raw soy-marinated crab (ganjang gejang) everyone flies in for — plus a polished, modern room.</p>
+      <div class="ad">📍 B108, The Live Sejong Tower, 126 Achasan-ro, Seongdong-gu · Seongsu Stn Exit 3<br><a class="map" href="https://map.naver.com/p/search/게방식당 성수점" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="nt">In the <b>basement</b> of the tower — easy to walk past. Open 11:30–15:00 (closed Mondays, so Sunday works).</div>
+      <div class="tags"><span class="tag ok">confirmed ✓</span></div>
+    </div>
+  </div>
+
+  <details class="route" open>
+    <summary>🛍 Seongsu shopping route · 14 stops</summary>
+    <div class="rb">
+      <div class="stop"><span class="n">1</span><span><b>Seongsu Stn Exit 3</b> <span class="kr">성수역</span> — start the loop here.</span></div>
+      <div class="stop"><span class="n">2</span><span><span class="cat cafe">CAFÉ</span><b>Cafe Onion Seongsu</b> <span class="kr">카페 어니언</span> — the iconic ruin-chic bakery. Coffee first.</span></div>
+      <div class="stop"><span class="n">3</span><span><span class="cat shop">SHOP</span><b>Musinsa</b> + <b>Musinsa Standard</b> <span class="kr">무신사</span> — inside the Daelim Changgo (대림창고) warehouse.</span></div>
+      <div class="stop"><span class="n">4</span><span><span class="cat shop">SHOP</span><b>Matin Kim</b> <span class="kr">마틴킴</span> + <b>MAC MOC</b> — designer label &amp; footwear flagships.</span></div>
+      <div class="stop"><span class="n">5</span><span><span class="cat shop">SHOP</span><b>EMPTY</b> <span class="kr">엠프티</span> + <b>ADER ERROR</b> — high-concept multi-brand &amp; experimental streetwear.</span></div>
+      <div class="stop"><span class="n">6</span><span><span class="cat cafe">CAFÉ</span><b>Jayeondo Salt Bread</b> <span class="kr">자연도소금빵</span> — the salt-bread trend, freshly baked.</span></div>
+      <div class="stop"><span class="n">7</span><span><span class="cat cafe">CAFÉ</span><b>ETF Bakery</b> / <b>Glow Seongsu</b> — aesthetic interiors, specialty pastries.</span></div>
+      <div class="stop"><span class="n">8</span><span><span class="cat shop">SHOP</span><b>Blue Elephant</b> <span class="kr">블루엘리펀트</span> + <b>Pottery</b> — niche eyewear, refined menswear.</span></div>
+      <div class="stop"><span class="n">9</span><span><span class="cat shop">SHOP</span><b>Olive Young N</b> <span class="kr">올리브영 N</span> + <b>Suare</b> — 5-floor K-beauty flagship. Stock up here.</span></div>
+      <div class="stop"><span class="n">10</span><span><span class="cat shop">SHOP</span><b>Minitmute</b> + <b>Rockfish Weatherwear</b> — colourful leather bags, British rainwear &amp; flats.</span></div>
+      <div class="stop"><span class="n">11</span><span><span class="cat cafe">CAFÉ</span><b>Vinyl</b> <span class="kr">바이닐</span> — warm-wood LP listening café, tube-amp sound. A proper sit-down break.</span></div>
+      <div class="stop"><span class="n">12</span><span><span class="cat shop">SHOP</span><b>Dior Seongsu</b> <span class="kr">디올 성수</span> + <b>Emis</b> — the glass boutique &amp; the cult cap brand.</span></div>
+      <div class="stop"><span class="n">13</span><span><b>Yeonmujang-gil cluster</b> <span class="kr">연무장길</span> — Stand Oil (bags), Tamburins (fragrance), Gentle Monster (eyewear), 29cm.home, Milky Shop. Snacks: <span class="cat cafe">CAFÉ</span>Newmix (grab-and-go), Meita Wang (egg tarts), Maman Gelato.</span></div>
+      <div class="stop"><span class="n">14</span><span><span class="cat cafe">CAFÉ</span><b>Nudake Seongsu</b> <span class="kr">누데이크</span> — sculptural dessert boutique. Finish here.</span></div>
+    </div>
+  </details>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Makgeolli" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">Evening · Dinner &amp; drinks</div>
+      <h3>Mr. Ahn's Craft Makgeolli <span class="kr">미스터안의 막걸리</span></h3>
+      <p class="sb">Michelin-selected. Traditional Korean spirits done seriously, with elevated anju to match.</p>
+      <div class="ad">📍 3 Hoenamu-ro, Yongsan-gu · Noksapyeong / Itaewon<br><a class="map" href="https://map.naver.com/p/search/미스터안의 막걸리" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="nt">Take a <b>taxi</b> from Seongsu (20–30 min) — the subway route needs awkward transfers.</div>
+      <div class="tags"><span class="tag ok">confirmed ✓ booked by Meiky</span></div>
+    </div>
+  </div>
+</main>
+
+<!-- DAY 3 -->
+<main class="day" id="d3">
+  <div class="day-head">
+    <div class="dh-k">Day 3 · Mon 14 Sept</div>
+    <h2>Department store, Dosan boutiques, beef, then bars</h2>
+    <p>The big one: Korea's largest department store in the morning, Apgujeong in the afternoon, 1++ Hanwoo omakase at 8, and a Cheongdam bar crawl to close.</p>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Department store" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">10:30–11:00 · Morning</div>
+      <h3>The Hyundai Seoul <span class="kr">더현대 서울</span></h3>
+      <p class="sb">Korea's largest department store, in Yeouido — a garden-filled, light-flooded flagship. Aim to arrive 10:30–11:00.</p>
+      <div class="ad">📍 Yeouido (여의도) · 35–45 min from the hotel<br><a class="map" href="https://map.naver.com/p/search/더현대 서울" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="nt">Transit: Line 3 Euljiro 3-ga → Jongno 3-ga, transfer to Line 5 → Yeouido. Or just take a taxi if you'd rather have the time and comfort.</div>
+    </div>
+  </div>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Noodles" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">Lunch</div>
+      <h3>Myeon Seoul <span class="kr">면서울</span></h3>
+      <p class="sb">Casual noodle bar — the second restaurant from Michelin-starred Chef Kim Do-yoon (김도윤), of Netflix's <i>Culinary Class Wars</i> (흑백요리사). Michelin Bib Gourmand.</p>
+      <div class="ad">📍 1F, 805 Seonleung-ro, Gangnam-gu · Apgujeong Rodeo Stn Exit 5<br><a class="map" href="https://map.naver.com/p/search/면서울 압구정" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="nt">⚠️ <b>Still to book — grab it on CatchTable.</b> Open 11:00–22:00, closed Sundays, break ~15:00–16:00. Taxi from The Hyundai, 20–30 min. Lands you right in Dosan Park for the afternoon.</div>
+      <div class="tags"><span class="tag no">to book on CatchTable</span></div>
+    </div>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Bagels" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">Afternoon</div>
+      <h3>Dosan Park &amp; Apgujeong Rodeo <span class="kr">도산공원 · 압구정</span></h3>
+      <p class="sb">Stroll, browse, snack. <b>London Bagel Museum Dosan</b> (런던 베이글 뮤지엄) is the must-try.</p>
+      <div class="ad">📍 Dosan Park area<br><a class="map" href="https://map.naver.com/p/search/런던 베이글 뮤지엄 도산" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="nt">Other snack stops: <b>Dosan Bunshik</b> (도산분식 · elevated Korean comfort snacks), <b>Dalmation</b> (달마시안 · European-style brunch café), <b>Minute Papillon</b> (미뉴트 빠삐용 · famous churros). Flagships nearby: <b>Wiggle Wiggle Zip</b>, <b>Tamburins</b>.</div>
+    </div>
+  </div>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Hanwoo beef" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">20:00 · Dinner</div>
+      <h3>Surin <span class="kr">수린</span></h3>
+      <p class="sb">Premium Hanwoo omakase — 1++ grade beef courses, cut by cut, in mother-of-pearl service. Right by Dosan Park.</p>
+      <div class="ad">📍 649-7 Sinsa-dong, Gangnam-gu · Apgujeong Rodeo Stn Exit 5<br><a class="map" href="https://map.naver.com/p/search/수린 압구정" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="tags"><span class="tag ok">confirmed ✓ booked by Meiky</span></div>
+    </div>
+  </div>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1590779033100-9f60a05a013d?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Cocktails" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">After dinner</div>
+      <h3>Cheongdam bar crawl 🍸</h3>
+      <p class="sb">The plan, in order:</p>
+      <div class="nt">
+        <b>1 · ZEST</b> (#2, Asia's 50 Best Bars 2026) — zero-waste, seasonal Korean ingredients. Go straight after Surin; <b>put your name down if it's full</b>.<br>
+        <b>2 · Alice Cheongdam</b> (#13) — theatrical speakeasy. Perfect as a pre-drink while you wait for ZEST.<br>
+        <br><b>Backups:</b> M+MS Bar (#42, fermentation-focused, by the Le Chamber team) · Le Chamber (#88, Gatsby-style speakeasy) · Pine &amp; Co (creative local cocktails).
+      </div>
+      <div class="ad">📍 ZEST: B1, 55 Dosan-daero 55-gil, Gangnam-gu<br><a class="map" href="https://map.naver.com/p/search/제스트 청담" target="_blank" rel="noopener">Naver Map ↗</a></div>
+      <div class="tags"><span class="tag">walk-in + waitlist</span></div>
+    </div>
+  </div>
+</main>
+
+<!-- DAY 4 -->
+<main class="day" id="d4">
+  <div class="day-head">
+    <div class="dh-k">Day 4 · Tue 15 Sept</div>
+    <h2>Last shop, coffee, and out</h2>
+    <p>A tight morning — the 15:10 flight sets the clock. Pack the night before and it's relaxed instead of rushed.</p>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Shopping" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">09:00–10:30</div>
+      <h3>Final shopping · Myeongdong</h3>
+      <p class="sb">Anything missed — cosmetics, gifts, snacks for home. All within walking distance of the hotel.</p>
+    </div>
+  </div>
+
+  <div class="ev">
+    <div class="th"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Coffee" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">10:30–11:15</div>
+      <h3>Brunch or a quick coffee</h3>
+      <p class="sb">Sit-down at <b>The Spot Fabulous</b> or <b>Furoa</b> — or just coffee + pastries near the hotel.</p>
+      <div class="nt">Only do the seated brunch <b>if you checked out and packed the night before</b>. Otherwise grab-and-go near the hotel is the safer call.</div>
+    </div>
+  </div>
+
+  <div class="ev key">
+    <div class="th"><img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?w=400&q=80&auto=format&fit=crop" loading="lazy" alt="Departure" onerror="this.parentElement.style.display='none'"></div>
+    <div class="bd">
+      <div class="tm">11:15 → 11:30</div>
+      <h3>Bags, lobby, go ✈️</h3>
+      <p class="sb">Luggage collected and in the lobby by <b>11:15</b>. Leave the hotel by <b>11:30 sharp</b> for Incheon.</p>
+      <div class="nt">Flight departs <b>15:10</b>. The 11:30 departure builds in a buffer for traffic — ICN is 60–90 min out depending on the road.</div>
+      <div class="tags"><span class="tag no">11:30 hard deadline</span></div>
+    </div>
+  </div>
+</main>
+
+<section class="info">
+  <details class="card" open>
+    <summary>🎫 Bookings &amp; status</summary>
+    <div class="cb">
+      <div class="row"><span class="k">✈️ Flights</span><span class="v">Sep 12 arrive <b>14:05</b> · Sep 15 depart <b>15:10</b><br><small>Incheon International (ICN)</small></span></div>
+      <div class="row"><span class="k">🏨 Hotel ✓</span><span class="v"><b>Lotte Hotel Seoul</b> (롯데호텔 서울)<br><small>30 Eulji-ro, Jung-gu · 서울특별시 중구 을지로 30 · 3 nights</small></span></div>
+      <div class="row"><span class="k">🥢 Day 1 dinner ✓</span><span class="v"><b>On 6.5</b> (온6.5) · 21:00<br><small>Anguk / Bukchon · deposit paid · last order 21:40</small></span></div>
+      <div class="row"><span class="k">🦀 Day 2 lunch ✓</span><span class="v"><b>Gebang Sikdang</b> (게방식당 성수점) · 12:30<br><small>The Live Sejong Tower B108 · Seongsu Stn Exit 3</small></span></div>
+      <div class="row"><span class="k">🍶 Day 2 dinner ✓</span><span class="v"><b>Mr. Ahn's Craft Makgeolli</b> (미스터안의 막걸리)<br><small>Yongsan-gu · booked by Meiky</small></span></div>
+      <div class="row"><span class="k">⚠️ Day 3 lunch</span><span class="v"><b>Myeon Seoul</b> (면서울) — <b>still to book</b><br><small>Book on CatchTable · Apgujeong Rodeo Stn Exit 5</small></span></div>
+      <div class="row"><span class="k">🥩 Day 3 dinner ✓</span><span class="v"><b>Surin</b> (수린) · 20:00<br><small>Apgujeong · Hanwoo omakase · booked by Meiky</small></span></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary>💆 Spa options · pick one if you want</summary>
+    <div class="cb">
+      <div class="row"><span class="k">⭐ ONA · private Korean scrub</span><span class="v">Private, reservation-only, <b>women-only</b> — far less intimidating than a public bathhouse, and beginner-friendly for a first seshin (scrub).<br><small>10-min walk from Lotte, in Myeongdong · <a class="ext" href="https://www.ona-spa.com/" target="_blank" rel="noopener">ona-spa.com</a> · not a concierge pick, but the most convenient for this itinerary</small></span></div>
+      <div class="row"><span class="k">The Belle Spa · The Plaza</span><span class="v">Bronze Flow Body Ritual, Sculpt &amp; Release, V-Line Sculpting, Premium Collagen Glow Facial.<br><small><a class="ext" href="http://www.bellespa.co.kr/" target="_blank" rel="noopener">bellespa.co.kr</a></small></span></div>
+      <div class="row"><span class="k">Element Spa</span><span class="v">Whole Body Therapy, a range of facials, and 'The Best Whole Body and Face' programme.<br><small><a class="ext" href="http://www.elementspa.co.kr/" target="_blank" rel="noopener">elementspa.co.kr</a></small></span></div>
+      <div class="row"><span class="k">V Spa · Lotte Avenuel</span><span class="v">In the hotel complex — <b>5% off all programmes for hotel guests</b> (add-ons excluded).<br><small><a class="ext" href="https://vspa.co.kr/15" target="_blank" rel="noopener">vspa.co.kr</a></small></span></div>
+    </div>
+  </details>
+
+  <details class="card">
+    <summary>💡 Good to know</summary>
+    <div class="cb">
+      <div class="row"><span class="k">Maps</span><span class="v">Google Maps can't do directions in Korea — use <b>Naver Map</b> or <b>Kakao Map</b>. All the map buttons here open Naver.</span></div>
+      <div class="row"><span class="k">Getting around</span><span class="v">Subway is fast and cheap; taxis are reasonable but bad in rush hour. <b>Kakao T</b> is the taxi app.</span></div>
+      <div class="row"><span class="k">Paying</span><span class="v">Cards are accepted almost everywhere. A T-money card helps for buses; many foreign contactless cards now tap in on the subway.</span></div>
+      <div class="row"><span class="k">Closures to note</span><span class="v">Gebang Sikdang closes <b>Mondays</b> (your visit is Sunday ✓). Myeon Seoul closes <b>Sundays</b> and breaks 15:00–16:00 (your visit is Monday ✓).</span></div>
+      <div class="row"><span class="k">Weather in mid-Sept</span><span class="v">Early autumn — pleasantly warm days (~26–28°C), cooler evenings (~19°C), low humidity. A light jacket for the late nights out.</span></div>
+    </div>
+  </details>
+</section>
+
+<footer>
+  <div class="sig">Have the best trip 🇰🇷</div>
+  <div>Meiky &amp; Marcella · Sep 12–15, 2026 · private plan</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.day-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var d = tab.dataset.d;
+      document.querySelectorAll('.day-tab').forEach(function(t){ t.classList.toggle('active', t === tab); });
+      document.querySelectorAll('.day').forEach(function(c){ c.classList.toggle('active', c.id === 'd' + d); });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+</script>
